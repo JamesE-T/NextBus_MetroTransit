@@ -3,17 +3,6 @@ import sys
 import requests
 import time
 import argparse
-'''
-sample input
-Bus_Route = "METRO Blue Line"
-Bus_Stop_Name = "Target Field Station Platform 1"
-Direction = "south"
-
-sample command line inits
-python3 main.py "METRO Blue Line" "Target Field Station Platform 1" "north"
-python3 main.py "METRO Blue Line" "Target Field Station Platform 1" "south"
-
-'''
 
 #function that gets the route_id from a given bus route 
 def get_route_id(Bus_Route) :
@@ -23,10 +12,6 @@ def get_route_id(Bus_Route) :
         if Bus_Route in item["route_label"] :
             return item["route_id"]
             
-
-#get direction_id from /directions/route_id, 0 = north/east, 1 = south/west
-#cheating on direction, could easily implement similar legit queries with tighter input control
-
 #function that gets direction_id from direction string, no API query necessary
 def get_direction_id(direction) :
     direction = direction.lower()
